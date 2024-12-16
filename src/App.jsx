@@ -1,5 +1,4 @@
-import './App.css';
-import MultiStepForm from './MultiStepForm';
+import MultiStepForm from './MultiStepForm.jsx';
 
 function App() {
 

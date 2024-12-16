@@ -1,68 +1,192 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+:root {
+  --marine-blue: hsl(213, 96%, 18%);
+  --purplish-blue: hsl(243, 100%, 62%);
+  --pastel-blue: hsl(228, 100%, 84%);
+  --light-blue: hsl(206, 94%, 87%);
+  --strawberry-red: hsl(354, 84%, 57%);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --cool-gray: hsl(231, 11%, 63%);
+  --light-gray: hsl(229, 24%, 87%);
+  --magnolia: hsl(217, 100%, 97%);
+  --alabaster: hsl(231, 100%, 99%);
+  --white: hsl(0, 0%, 100%);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-bold: 700;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-a:hover {
-  color: #535bf2;
+
+html {
+  font-size: 16px;
 }
 
 body {
-  margin: 0;
+  background-color: var(--magnolia);
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.form-container {
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 8px 20px var(--light-gray);
+  height: min(90%, 43.75rem);
+  width: min(100%, 62.5rem);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.progress-container {
+  border-radius: 0.5rem;
+  background-image: url(./assets/bg-sidebar-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  flex-grow: 1;
+  max-width: 20.5rem;
+  width: 100%;
+  padding: 3rem;
+  overflow: auto;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  color: var(--white);
+}
+.progress-step:last-child {
+  margin-bottom: 0;
+}
+.progress-step.active .progress-index {
+  color: var(--marine-blue);
+  background-color: var(--light-blue);
+  border-color: var(--light-blue)
+}
+.progress-index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  background-color: none;
+  border-radius: 1.5rem;
+  border: 1px solid var(--white);
+  font-weight: var(--font-bold);
+  transition: all .2s ease-in-out;
+}
+
+.progress-title p {
+  color: var(--light-gray);
+  margin-bottom: 0.2rem;
+}
+.progress-title h3 {
+  letter-spacing: 0.08rem;
+  font-size: 1.125rem;
+}
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 3.5rem 4rem;
+  overflow-y: auto;
+}
+.step-container h2, label {
+  color: var(--marine-blue);
+}
+.step-container h2 {
+  font-size: 2rem;
+  font-weight: var(--font-bold);
+  margin-bottom: 0.5rem;
+}
+.step-container p {
+  color: var(--cool-gray);
+  font-size: 1.125rem;
+  margin-bottom: 3rem;
+}
+.step-container .input-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.step-container .input-group label {
+  margin-bottom: 0.5rem;
+  font-weight: var(--font-medium);
+  max-width: fit-content;
   cursor: pointer;
-  transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+.step-container .input-group input {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--light-gray);
+  color: var(--marine-blue);
+  font-weight: var(--font-medium);
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.step-container .input-group input::placeholder {
+  color: var(--cool-gray);
+}
+.step-container .input-group input:focus-visible {
+  border: 1px solid var(--purplish-blue);
+  outline: none;
+  caret-color: var(--marine-blue);
+  cursor: auto;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+.step-container .input-group:has(.error) input {
+  border: 1px solid var(--strawberry-red);
+}
+.step-container .input-group .error {
+  position: absolute;
+  right: 0;
+  font-size: 1rem;
+  margin-bottom: 0;
+  color: var(--strawberry-red);
+  font-weight: var(--font-bold);
+}
+
+.step-container .buttons {
+  display: flex;
+  margin-top: auto;
+}
+.step-container button {
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: var(--font-medium);
+  font-size: 1.125rem;
+}
+.step-container .buttons .next {
+  background-color: var(--marine-blue);
+  color: var(--white);
+  margin-left: auto;
+  transition: background-color 0.2s ease-in-out;
+}
+.step-container .buttons .next:hover {
+  background-color: hsl(213, 96%, 28%);
+  cursor: pointer;
+}
+.step-container .buttons .go-back {
+  background: none;
+  color: var(--cool-gray);
+}
