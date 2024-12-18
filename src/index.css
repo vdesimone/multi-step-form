@@ -109,6 +109,11 @@ body {
   padding: 3.5rem 4rem;
   overflow-y: auto;
 }
+form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
 .step-container h2, label {
   color: var(--marine-blue);
 }
@@ -189,4 +194,100 @@ body {
 .step-container .buttons .go-back {
   background: none;
   color: var(--cool-gray);
+  transition: color 0.2s ease-in-out;
+  padding: 0rem;
+}
+.step-container .buttons .go-back:hover {
+  color: var(--marine-blue);
+  cursor: pointer;
+}
+
+.plan-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.plan-container .plan input[type="radio"] {
+  display: none;
+}
+.plan-container .plan input[type="radio"]:checked~label {
+  background-color: var(--magnolia);
+  border-color: var(--purplish-blue);
+}
+.plan-container .plan label {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem;
+  border: 1px solid var(--light-gray);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all .18s ease-in-out;
+}
+.plan-container .plan label:hover {
+  border-color: var(--purplish-blue);
+}
+.plan-container .plan label img {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 3.5rem;
+}
+.plan-container .plan label h4 {
+  font-size: 1.125rem;
+  font-weight: var(--font-bold);
+  margin-bottom: 0.25rem;
+}
+.plan-container .plan label p {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+.plan-container .plan label p:nth-of-type(2) {
+  color: var(--marine-blue);
+}
+label:has(p:nth-of-type(2)) p:first-of-type {
+  margin-bottom: 0.25rem;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--magnolia);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.toggle-container .toggle-content {
+  display: flex;
+  gap: 1rem;
+}
+.toggle-container .toggle-content h5 {
+  font-size: 1.125rem;
+  font-weight: var(--font-medium);
+  color: var(--marine-blue);
+  text-align: center;
+}
+.toggle-container .toggle-content h5:not(.selected) {
+  color: var(--cool-gray);
+}
+.toggle-container .toggle-content input {
+  display: none;
+}
+.toggle-container .toggle-content label {
+  width: 3rem;
+  background-color: var(--marine-blue);
+  border-radius: 3rem;
+  aspect-ratio: 2;
+  cursor: pointer;
+  position: relative;
+}
+.toggle-container .toggle-content label::after {
+  position: absolute;
+  content: "";
+  background-color: var(--white);
+  top: .25em;
+  bottom: .25em;
+  left: .25em;
+  aspect-ratio: 1;
+  border-radius: 3rem;
+  transition: all .2s ease-in-out;
 }
