@@ -37,7 +37,7 @@ function Step4() {
           <p className="price">+$12/mo</p>
         </div>
       </div>
-    <div className="buttons">
+      <div className="buttons">
         <button className="go-back">Go Back</button>
         <button className="submit">Confirm</button>
       </div>

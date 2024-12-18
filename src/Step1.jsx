@@ -52,8 +52,8 @@ function Step1() {
         </div>
       </form>
       <div className="buttons">
-          <button className="next">Next Step</button>
-        </div>
+        <button className="next">Next Step</button>
+      </div>
     </div>
   );
 }

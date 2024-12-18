@@ -65,9 +65,9 @@ function Step2() {
         </div>
       </form>
       <div className="buttons">
-          <button className="go-back">Go Back</button>
-          <button className="next">Next Step</button>
-        </div>
+        <button className="go-back">Go Back</button>
+        <button className="next">Next Step</button>
+      </div>
     </div>
   );
 }
