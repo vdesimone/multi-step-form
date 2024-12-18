@@ -57,7 +57,7 @@ function Step2() {
 
         <div className="toggle-container">
           <div className="toggle-content">
-            <h5 className="selected">Monthly</h5>
+            <h5 className="active">Monthly</h5>
             <input type="checkbox" id="toggle-switch" />
             <label htmlFor="toggle-switch"></label>
             <h5>Yearly</h5>
