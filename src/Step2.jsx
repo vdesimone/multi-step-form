@@ -21,8 +21,10 @@ function Step2() {
             />
             <label htmlFor="arcade">
               <img src={arcadeIcon} alt="Arcade Plan Icon" />
-              <h4>Arcade</h4>
-              <p>$9/mo</p>
+              <div className="plan-details">
+                <h4>Arcade</h4>
+                <p>$9/mo</p>
+              </div>
             </label>
           </div>
 
@@ -35,8 +37,10 @@ function Step2() {
             />
             <label htmlFor="advanced">
               <img src={advancedIcon} alt="Advanced Plan Icon" />
-              <h4>Advanced</h4>
-              <p>$12/mo</p>
+              <div className="plan-details">
+                <h4>Advanced</h4>
+                <p>$12/mo</p>
+              </div>
             </label>
           </div>
 
@@ -49,8 +53,10 @@ function Step2() {
             />
             <label htmlFor="pro">
               <img src={proIcon} alt="Pro Plan Icon" />
-              <h4>Pro</h4>
-              <p>$15/mo</p>
+              <div className="plan-details">
+                <h4>Pro</h4>
+                <p>$15/mo</p>
+              </div>
             </label>
           </div>
         </div>
