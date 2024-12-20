@@ -1,4 +1,4 @@
-import thankYouIcon from "./assets/icon-thank-you.svg";
+import thankYouIcon from "../assets/icon-thank-you.svg";
 
 function Step5() {
 

@@ -1,6 +1,6 @@
-import arcadeIcon from "./assets/icon-arcade.svg";
-import advancedIcon from "./assets/icon-advanced.svg";
-import proIcon from "./assets/icon-pro.svg";
+import arcadeIcon from "../assets/icon-arcade.svg";
+import advancedIcon from "../assets/icon-advanced.svg";
+import proIcon from "../assets/icon-pro.svg";
 
 function Step2() {
 
