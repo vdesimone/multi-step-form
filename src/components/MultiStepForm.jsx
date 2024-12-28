@@ -14,6 +14,7 @@ function MultiStepForm() {
     email: "",
     phoneNumber: "",
     planType: "",
+    isYearly: false,
     addOns: [],
     selectedPrice: 0,
   });
@@ -87,7 +88,7 @@ function MultiStepForm() {
 
   const validatePhone = (phoneNumber) => {
     let error = "";
-    const phoneRegex = /^[0-9]{10}$/;
+    const phoneRegex = /^[0-9]{1}[- ]?[0-9]{3}[- ]?[0-9]{3}[- ]?[0-9]{3}$/;
     if (!phoneNumber) {
       error = "This field is required";
     } else if (!phoneRegex.test(phoneNumber)) {
@@ -151,7 +152,14 @@ function MultiStepForm() {
           isTouched={isTouched}
         />
       )}
-      {step === 2 && <Step2 formData={formData}/>}
+      {step === 2 && (
+        <Step2
+        formData={formData}
+        handleBack={handleBack}
+        handleNext={handleNext}
+        handleInputChange={handleInputChange}
+        />
+      )}
       {step === 3 && <Step3 formData={formData}/>}
       {step === 4 && <Step4 formData={formData}/>}
       {step === 5 && <Step5 formData={formData}/>}

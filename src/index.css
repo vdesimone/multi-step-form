@@ -328,10 +328,13 @@ label:has(p:nth-of-type(2)) p:first-of-type {
   background-color: var(--white);
   top: .25em;
   bottom: .25em;
-  left: .25em;
+  left: .29em;
   aspect-ratio: 1;
   border-radius: 3rem;
   transition: all 0.2s ease-in-out;
+}
+.toggle-container .toggle-content input:checked + label::after {
+  left: 1.75em;
 }
 
 .add-on-container {
