@@ -16,7 +16,26 @@ function MultiStepForm() {
     planType: "",
     isYearly: false,
     addOns: [],
-    selectedPrice: 0,
+    options: [
+      { id: 1,
+        label: "Online service",
+        description: "Access to multiplayer games",
+        monthlyPrice: "$1/mo",
+        yearlyPrice: "$10/yr"
+      },
+      { id: 2,
+        label: "Larger storage",
+        description: "Extra 1TB of cloud save",
+        monthlyPrice: "$2/mo",
+        yearlyPrice: "$20/yr"
+      },
+      { id: 3,
+        label: "Customizable profile",
+        description: "Custom theme on your profile",
+        monthlyPrice: "$2/mo",
+        yearlyPrice: "$20/yr"
+      },
+    ],
   });
   const [errors, setErrors] = useState({});
   const [isTouched, setIsTouched] = useState(false);
@@ -46,6 +65,10 @@ function MultiStepForm() {
 
   const handleBack = () => {
     setStep(step - 1);
+  };
+
+  const handleChangeButton = () => {
+    setStep(step - 2);
   };
 
   const handleSubmit = (e) => {
@@ -154,17 +177,31 @@ function MultiStepForm() {
       )}
       {step === 2 && (
         <Step2
-        formData={formData}
-        handleBack={handleBack}
-        handleNext={handleNext}
-        handleInputChange={handleInputChange}
+          formData={formData}
+          handleBack={handleBack}
+          handleNext={handleNext}
+          handleInputChange={handleInputChange}
         />
       )}
-      {step === 3 && <Step3 formData={formData}/>}
-      {step === 4 && <Step4 formData={formData}/>}
-      {step === 5 && <Step5 formData={formData}/>}
+      {step === 3 && (
+        <Step3
+          formData={formData}
+          handleBack={handleBack}
+          handleNext={handleNext}
+          handleInputChange={handleInputChange}
+        />
+      )}
+      {step === 4 && (
+        <Step4
+          formData={formData}
+          handleChangeButton={handleChangeButton}
+          handleBack={handleBack}
+          handleSubmit={handleSubmit}
+        />
+      )}
+      {step === 5 && <Step5/>}
     </div>
   );
 }
 
-export default MultiStepForm
+export default MultiStepForm;
