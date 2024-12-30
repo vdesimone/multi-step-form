@@ -9,7 +9,11 @@ function Step1({ formData, errors, handleInputChange, handleNext, isTouched }) {
         <p>Please prove your name, email address, and phone number.</p>
 
         <div className="input-group">
-          <label htmlFor="name">Name</label>
+          <div>
+            <label htmlFor="name">Name</label>
+            {isTouched && errors.name && <p className="error">{errors.name}</p>}
+          </div>
+
           <input
             type="text"
             name="name"
@@ -19,11 +23,13 @@ function Step1({ formData, errors, handleInputChange, handleNext, isTouched }) {
             placeholder="e.g. Stephen King"
             required
           />
-          {isTouched && errors.name && <p className="error">{errors.name}</p>}
         </div>
 
         <div className="input-group">
-          <label htmlFor="email">Email Address</label>
+          <div>
+            <label htmlFor="email">Email Address</label>
+            {isTouched && errors.email && <p className="error">{errors.email}</p>}
+          </div>
           <input
             type="email"
             name="email"
@@ -33,12 +39,14 @@ function Step1({ formData, errors, handleInputChange, handleNext, isTouched }) {
             placeholder="e.g. stephenking@lorem.com"
             required
           />
-          {isTouched && errors.email && <p className="error">{errors.email}</p>}
         </div>
 
 
         <div className="input-group">
-          <label htmlFor="phoneNumber">Phone Number</label>
+          <div>
+            <label htmlFor="phoneNumber">Phone Number</label>
+            {isTouched && errors.phoneNumber && <p className="error">{errors.phoneNumber}</p>}
+          </div>
           <input
             type="tel"
             name="phoneNumber"
@@ -48,7 +56,6 @@ function Step1({ formData, errors, handleInputChange, handleNext, isTouched }) {
             placeholder="e.g. 1 234 567 890"
             required
           />
-          {isTouched && errors.phoneNumber && <p className="error">{errors.phoneNumber}</p>}
         </div>
       </form>
       <div className="buttons">

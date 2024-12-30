@@ -173,8 +173,13 @@ form, .step-four-container {
   position: relative;
   width: 100%;
 }
-.step-container .input-group label {
+.step-container .input-group div {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
   margin-bottom: 0.5rem;
+}
+.step-container .input-group label {
   font-weight: var(--font-medium);
   max-width: fit-content;
   cursor: pointer;
@@ -203,12 +208,12 @@ form, .step-four-container {
   border: 1px solid var(--strawberry-red);
 }
 .step-container .input-group .error {
-  position: absolute;
-  right: 0;
+  display: block;
   font-size: 1rem;
   margin-bottom: 0;
   color: var(--strawberry-red);
   font-weight: var(--font-bold);
+  text-align: right;
 }
 
 .step-container .buttons {
@@ -724,9 +729,6 @@ label:has(p:nth-of-type(2)) p:first-of-type {
 
 @media screen and (max-width: 530px) {
   .step-container .input-group .error {
-    position: absolute;
-    right: 0;
-    top: 0.18rem;
     font-size: 0.75rem;
   }
 
@@ -775,21 +777,14 @@ label:has(p:nth-of-type(2)) p:first-of-type {
     font-weight: var(--font-bold);
     margin-bottom: 0.5rem;
   }
-  .step-container .input-group label {
-    margin-bottom: 0.75rem;
-  }
   .step-container .input-group input {
     font-size: 1rem;
     margin-bottom: 2rem;
-    cursor: pointer;
   }
-  .step-container .input-group .error {
-    position: absolute;
-    right: 0;
-    top: 0rem;
-    font-size: 0.75rem;
-    max-width: 65px;
+  .step-container .input-group div {
+    gap: 1rem;
   }
+
   .add-on-container .add-on div h4 {
     font-size: 1rem;
     font-weight: var(--font-bold);
