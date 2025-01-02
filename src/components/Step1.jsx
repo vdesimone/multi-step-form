@@ -6,7 +6,7 @@ function Step1({ formData, errors, handleInputChange, handleNext, isTouched }) {
     <div className="step-container">
       <form>
         <h2>Personal info</h2>
-        <p>Please prove your name, email address, and phone number.</p>
+        <p>Please provide your name, email address, and phone number.</p>
 
         <div className="input-group">
           <div>

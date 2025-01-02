@@ -35,7 +35,6 @@ function Step4({ formData, handleChangeButton, handleBack, handleSubmit }) {
 
             {addOns.map((addOnId) => {
               const addOn = options.find((option) => option.id === Number(addOnId));
-              console.log(addOn)
               if (!addOn) return null;
 
               return (

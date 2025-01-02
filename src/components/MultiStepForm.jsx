@@ -73,7 +73,6 @@ function MultiStepForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
     setStep(step + 1);
   };
 
