@@ -134,7 +134,7 @@ function MultiStepForm() {
     } else if (!nameRegex.test(formData.name)){
       tempErrors.name = "Invalid character in name";
       valid = false;
-    } else if (formData.name < 3) {
+    } else if (formData.name.length < 3) {
       tempErrors.name = "Minimum of 3 characters required";
       valid = false;
     }

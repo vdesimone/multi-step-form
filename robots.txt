@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.gitignore
+Disallow: /eslint.config.js
+Disallow: /vite.config.js
+Disallow: /package.json
+Disallow: /package-lock.json

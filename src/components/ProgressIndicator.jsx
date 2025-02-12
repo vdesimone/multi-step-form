@@ -28,7 +28,7 @@ function ProgressIndicator({ currentStep, totalSteps }) {
       </div>
 
       <div className="watermark">
-        <p><a href="https://github.com/vdesimone" target="_blank">vdesimone</a></p>
+        <p><a href="https://github.com/vdesimone/multi-step-form" target="_blank">vdesimone</a></p>
       </div>
 
     </div>

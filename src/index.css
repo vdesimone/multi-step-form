@@ -808,3 +808,9 @@ label:has(p:nth-of-type(2)) p:first-of-type {
     padding: 5rem 1.25rem;
   }
 }
+
+@media screen and (min-height: 1400px) {
+  html {
+    font-size: 18px;
+  }
+}
