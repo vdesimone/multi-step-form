@@ -4,7 +4,7 @@ import arcadeIcon from "../assets/icon-arcade.svg";
 import advancedIcon from "../assets/icon-advanced.svg";
 import proIcon from "../assets/icon-pro.svg";
 
-function Step2({ formData, handleBack, handleNext, handleInputChange }) {
+function Step2({ formData, errors, handleBack, handleNext, handleInputChange, isTouched }) {
   const [selectedPlan, setSelectedPlan] = useState(formData.planType);
 
   const isYearly = formData.isYearly;
@@ -30,7 +30,7 @@ function Step2({ formData, handleBack, handleNext, handleInputChange }) {
 
   return(
     <div className="step-container">
-      <form>
+      <form className="plan-form">
         <h2>Select your plan</h2>
         <p>You have the option of monthly or yearly billing.</p>
 
@@ -93,6 +93,8 @@ function Step2({ formData, handleBack, handleNext, handleInputChange }) {
           </div>
         </div>
 
+        {isTouched && errors.planType && <p className="error">{errors.planType}</p>}
+
         <div className="toggle-container">
           <div className="toggle-content">
             <h5 className={isYearly ? "inactive" : "active"}>Monthly</h5>
@@ -120,9 +122,13 @@ Step2.propTypes = {
     planType: PropTypes.string.isRequired,
     isYearly: PropTypes.bool.isRequired,
   }).isRequired,
+  errors: PropTypes.shape({
+    planType: PropTypes.string,
+  }),
   handleBack: PropTypes.func.isRequired,
   handleNext: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired,
+  isTouched: PropTypes.bool.isRequired,
 };
 
 export default Step2;

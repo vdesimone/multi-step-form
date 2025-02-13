@@ -43,7 +43,7 @@ function MultiStepForm() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    setFormData ((prev) => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -54,12 +54,15 @@ function MultiStepForm() {
       validateEmail(value);
     } else if (name === "phoneNumber") {
       validatePhone(value);
+    } else if (name === "planType")  {
+      validatePlanType(value);
     }
   };
 
   const handleNext = () => {
     setIsTouched(true);
     if (step === 1 && !validateStep1()) return;
+    if (step === 2 && !validateStep2()) return;
     setStep(step + 1);
   };
 
@@ -123,6 +126,18 @@ function MultiStepForm() {
     }));
   };
 
+  const validatePlanType = (planType) => {
+    let error = "";
+    if (!planType) {
+      error = "Please select one of the plans above";
+    }
+
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      planType: error,
+    }))
+  }
+
   const validateStep1 = () => {
     let valid = true;
     let tempErrors = {};
@@ -161,6 +176,19 @@ function MultiStepForm() {
     return valid;
   };
 
+  const validateStep2 = () => {
+    let valid = true;
+    let tempErrors = {};
+
+    if (!formData.planType) {
+      tempErrors.planType = "Please select one of the plans above";
+      valid = false;
+    }
+
+    setErrors(tempErrors)
+    return valid;
+  };
+
   return (
     <div className="form-container">
       <ProgressIndicator currentStep={step} totalSteps={4} />
@@ -177,9 +205,11 @@ function MultiStepForm() {
       {step === 2 && (
         <Step2
           formData={formData}
+          errors={errors}
           handleBack={handleBack}
           handleNext={handleNext}
           handleInputChange={handleInputChange}
+          isTouched={isTouched}
         />
       )}
       {step === 3 && (

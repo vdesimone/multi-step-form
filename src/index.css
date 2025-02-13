@@ -296,6 +296,18 @@ label:has(p:nth-of-type(2)) p:first-of-type {
   margin-bottom: 0.25rem;
 }
 
+.step-container .plan-form:has(.error) .plan-container {
+  margin-bottom: 1rem;
+}
+.step-container .plan-form .error {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--strawberry-red);
+  font-weight: var(--font-bold);
+  text-align: center;
+}
+
 .toggle-container {
   display: flex;
   align-items: center;
